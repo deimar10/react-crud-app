@@ -15,7 +15,12 @@ const Home = () => {
     }]);
 
     useEffect(() => {
+        if(!socket.connected) {
+            setPosts(JSON.parse(localStorage.getItem("get")));
+        }
+        socket.on("connect", () => {
             handleGET();
+        })
     },[]);
 
     const handleGET = () => {
@@ -28,6 +33,9 @@ const Home = () => {
         socket.emit('get/users');
         socket.on('get/users', (data) => {
             setPosts(data);
+
+            let postsSerialized = JSON.stringify(data);
+            localStorage.setItem("get", postsSerialized);
         })
     }
 
