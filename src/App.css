@@ -2,37 +2,79 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table {
+  margin: 0 auto;
+  margin-top: 100px;
+  font-family: Helvetica;
+  font-size: 20px;
+  border-collapse: collapse;
+  width: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+td, th {
+  border: 5px solid white;
+  border-radius: 15px;
+  text-align: left;
+  padding: 18px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+tbody {
+  background-color: #f3f3f3;
+}
+
+.delete {
   color: white;
+  border: 1px solid #b94040;
+  border-radius: 15px;
+  padding: 13px;
+  float: right;
+  background: #b94040;
 }
 
-.App-link {
-  color: #61dafb;
+.delete:hover {
+  cursor: pointer;
+  border: 1px solid #cc5a5a;
+  background: #cc5a5a;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#open-popup{
+  color: white;
+  margin-right: 10px;
+  border: 1px solid  #58ad4a;
+  border-radius: 15px;
+  padding-left: 19px;
+  padding-right: 19px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  float: right;
+  background: #58ad4a;
+}
+
+#open-popup:hover{
+  cursor: pointer;
+  border: 1px solid  #7ecc6d;
+  background: #7ecc6d;
+}
+
+#createBtn {
+  margin-right: 10px;
+  cursor: pointer;
+  float: right;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  background: #7ecc6d;
+  border: 0px solid  #58ad4a;
+}
+
+#logWrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#logs {
+  font-size: 20px;
+  margin-top: 15px;
+  margin-right: 10px;
+  float: right;
 }
