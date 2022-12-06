@@ -5,9 +5,12 @@ import React from "react";
 import EditUser from "./EditUser";
 import CreateUser from './CreateUser.js';
 import {FaTrash} from "react-icons/fa";
+import {FaServer} from "react-icons/fa";
+import ServerLogs from "./ServerLogs";
 
 const Home = () => {
     const socket = io.connect("http://localhost:3001");
+    const [view, setView] = useState(false);
     const [posts, setPosts] = useState([{
         body: "",
         title: "",
@@ -47,8 +50,13 @@ const Home = () => {
         socket.emit('delete/user', post.id);
     }
 
+    const handleLogs = () => {
+        setView(true)
+    }
+
     return (
         <body>
+          { view ? <ServerLogs setView={setView}/> :
             <div className="container">
                 <table className="table">
                     <thead>
@@ -72,8 +80,12 @@ const Home = () => {
                     )}
                     </tbody>
                 </table>
+                <div id="logWrapper">
+                    <button id="logs" onClick={handleLogs}><FaServer></FaServer></button>
+                </div>
                 <EditUser posts={posts} setPosts={setPosts} socket={socket}/>
             </div>
+          }
         </body>
     );
 };
