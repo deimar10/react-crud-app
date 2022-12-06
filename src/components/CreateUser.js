@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {FaPlus} from "react-icons/fa";
 import Popup from "./popup";
-import axios from "axios";
+//import axios from "axios";
 
-export default function CreateUser({ setPosts, posts }) {
-    const baseURL = process.env.REACT_APP_API;
+export default function CreateUser({ setPosts, posts, socket }) {
+  //  const baseURL = process.env.REACT_APP_API;
     const [buttonPopup, setButtonPopup] = useState(false);
     const [postInfo, setPostInfo] = useState({
         title: '',
@@ -13,7 +13,7 @@ export default function CreateUser({ setPosts, posts }) {
 
     const handlePOST = (e) => {
         e.preventDefault();
-        axios.post(baseURL,
+      /*  axios.post(baseURL,
             {
                 title: postInfo.title,
                 body: postInfo.body,
@@ -22,6 +22,8 @@ export default function CreateUser({ setPosts, posts }) {
             .then(response => {
                 setPosts(posts.concat(response.data));
             })
+       */
+        socket.emit('create/user', postInfo);
     }
 
     const handleChange = (e) => {

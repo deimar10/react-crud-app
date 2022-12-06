@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import axios from "axios";
+// import axios from "axios";
 import Popup from "./popup";
 import {FaPen} from "react-icons/fa";
 
@@ -18,12 +18,17 @@ function Example(props) {
 
     function updateUser(e) {
         e.preventDefault();
-         const baseURL = process.env.REACT_APP_API + "/" + props.post.id
+       /*  const baseURL = process.env.REACT_APP_API + "/" + props.post.id
          axios.put(baseURL, edit)
              .then((response) => {
                  props.setPosts(props.posts.filter((post => post.id !== props.post.id))
                      .concat(response.data));
              })
+        */
+        props.socket.emit('update/user', {
+            user: edit,
+            id: props.post.id
+        })
     };
 
     if(props.post)  {
