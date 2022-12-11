@@ -74,12 +74,12 @@ tbody {
 
 #logsMainSection {
   margin: 0 auto;
-  width: 35%;
+  width: 45%;
   height: 550px;
 }
 
 #logsBackBtn {
-  margin-bottom: 50px;
+  margin-bottom: 15px;
 }
 
 #logWrapper {

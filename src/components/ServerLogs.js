@@ -8,7 +8,9 @@ function ServerLogs({setView}) {
     const columns = [
         { field: 'timeStamp', headerName: 'Date-Time', width: 150 },
         { field: 'originalUrl', headerName: 'URL', width: 100 },
-        { field: 'method', headerName: 'Method', width: 100 },
+        { field: 'method', headerName: 'Method', width: 70 },
+        { field: 'id', headerName: 'Id', width: 225},
+        { field: 'changes', headerName: 'Changes', width: 250 }
     ]
 
     const handleBack = () => {
@@ -23,7 +25,6 @@ function ServerLogs({setView}) {
         axios.get("http://localhost:3001/posts/logs")
             .then(response => {
                 setLogs(response.data);
-                console.log(logs)
             })
     }
     return (
@@ -32,7 +33,7 @@ function ServerLogs({setView}) {
                 <h2>Logs</h2>
                 <button id="logsBackBtn" onClick={handleBack}>Back</button>
                 <DataGrid
-                    getRowId={(row) => row.method + row.timeStamp}
+                    getRowId={(row) => row.timeStamp + row.id}
                     rows={logs}
                     columns={columns}
                     pageSize={8}

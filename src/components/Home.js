@@ -31,7 +31,6 @@ const Home = () => {
              .then(response => {
                  setPosts(posts.concat(response.data));
              })
-
          */
         socket.emit('get/users');
         socket.on('get/users', (data) => {
@@ -51,7 +50,7 @@ const Home = () => {
     }
 
     const handleLogs = () => {
-        setView(true)
+        setView(true);
     }
 
     return (
@@ -72,7 +71,12 @@ const Home = () => {
                         <tr key={post.id}>
                             <td>{post.title}</td>
                             <td>{post.body}</td>
-                            <td><EditUser post={post} posts={posts} socket={socket} setPosts={setPosts} className="btn btn-info btn-sm"> update</EditUser></td>
+                            <td>
+                                <EditUser
+                                    post={post} posts={posts} socket={socket} setPosts={setPosts}
+                                    className="updatePost"> update
+                                </EditUser>
+                            </td>
                             <td><button id={post.id} className="delete" onClick={() => handleDelete(post)}><FaTrash>
                             </FaTrash>Remove</button>
                             </td>

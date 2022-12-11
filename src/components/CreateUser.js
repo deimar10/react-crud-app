@@ -29,7 +29,6 @@ export default function CreateUser({ setPosts, posts, socket }) {
     const handleChange = (e) => {
         setPostInfo({...postInfo, [e.target.name] : e.target.value});
     }
-
     return (
         <div>
             <button id="createBtn" onClick={() => setButtonPopup(true)} id="createBtn">
