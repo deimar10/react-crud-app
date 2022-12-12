@@ -6,11 +6,12 @@ import { DataGrid } from "@mui/x-data-grid";
 function ServerLogs({setView}) {
     const [logs, setLogs] = useState([]);
     const columns = [
-        { field: 'timeStamp', headerName: 'Date-Time', width: 150 },
+        { field: 'timeStamp', headerName: 'Date-Time', width: 200 },
         { field: 'originalUrl', headerName: 'URL', width: 100 },
         { field: 'method', headerName: 'Method', width: 70 },
         { field: 'id', headerName: 'Id', width: 225},
-        { field: 'changes', headerName: 'Changes', width: 250 }
+        { field: 'new', headerName: 'New', width: 250 },
+        { field: 'original', headerName: 'Original', width: 250}
     ]
 
     const handleBack = () => {
